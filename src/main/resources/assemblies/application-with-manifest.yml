@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>application-with-manifest</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<fileSets>
+		<fileSet>
+			<directory>${project.build.directory}</directory>
+			<includes>
+				<include>${project.build.finalName}.${project.packaging}</include>
+			</includes>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}</directory>
+			<includes>
+				<include>manifest.yml</include>
+			</includes>
+			<outputDirectory>${file.separator}</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>
